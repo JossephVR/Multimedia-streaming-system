@@ -1,55 +1,49 @@
-# Distributed Multimedia System for Content Streaming v1.0
+# OnStream — Distributed Multimedia Streaming System
 
-## Description
-The goal of this project is to develop a distributed multimedia system capable of streaming music and videos on a computer. The system leverages Edge Computing solutions within a local network environment, enabling efficient management of simultaneous requests and ensuring fast, reliable delivery of multimedia content.
+A distributed multimedia system capable of streaming music and videos over a local network. The system leverages Edge Computing solutions to enable efficient management of simultaneous requests and ensure fast, reliable content delivery.
 
-The system provides an adaptive, optimized user interface built with HTML, JavaScript, and CSS technologies. It also utilizes AWS S3 for cloud storage and WebSockets for real-time communication between the server and clients.
+The backend is powered by Node.js, utilizing AWS S3 for cloud storage and WebSockets for real-time communication between server and clients. The frontend provides an adaptive user interface built with HTML, JavaScript, and CSS.
 
-### Details
-#### API for Videos and Audios
-To retrieve the list of available videos and audios, it uses:
-```bash
-GET /api/videos
-```
-The system retrieves the links of files stored in S3 and compiles them into a list, which is then sent to the client in JSON format.
+## Screenshots
 
-AWS S3 is used as the cloud storage API for creating buckets to store multimedia files (mp3 and mp4). These files are retrieved via links and shared between server and client through JSON structures.
+![Video Catalog](screenshots/video-catalog.png)
+![Video Player](screenshots/video-player.png)
+![Music Catalog](screenshots/music-catalog.png)
 
-#### WebSockets
-The system also supports WebSockets for real-time updates of multimedia links.
-When a client connects, it receives the current list of multimedia files.
-If the client sends the message fetch_videos, the updated list of videos and audios is sent back.
+## Features
 
+- **Video Streaming**: Stream video content retrieved from AWS S3.
+- **Music Streaming**: Stream music from AWS S3 and local server storage.
+- **Content Catalog**: Dynamic catalog of available media, updated in real time via WebSockets.
+- **Search**: Filter videos and music by name directly in the interface.
+- **Real-Time Updates**: Content catalog refreshes automatically every 30 seconds.
+- **Cloud Storage**: Multimedia files stored and retrieved via AWS S3.
+
+## Tech Stack
+
+- **Backend**: Node.js, Express
+- **Cloud Storage**: AWS S3
+- **Real-Time Communication**: WebSockets
+- **Frontend**: HTML, JavaScript, CSS
 
 ## Project Setup
 
 ### Requirements
 
 - Node.js (v14+ recommended)
-
 - npm (comes with Node.js)
 
 ### Install Dependencies
 
 Navigate to the websocket folder:
-
 ```bash
 cd websocket
 npm install
 ```
 
-This will install:
+### Environment Variables
 
-- express
-
-- ws
-
-- @aws-sdk/client-s3
-
-- dotenv
-
-## Environment Variables
-Create a .env file inside the websocket folder with the following:
+Create a `.env` file inside the websocket folder:
 ```bash
 AWS_ACCESS_KEY_ID=(access-key)
 AWS_SECRET_ACCESS_KEY=(secret-key)
@@ -57,11 +51,9 @@ AWS_REGION=(aws-region)
 BUCKET_NAME=(bucket-name)
 ```
 
-Replace the values with actual AWS credentials.
+Replace the values with your actual AWS credentials.
 
 ### Running the Server
-Inside the websocket folder:
-
 ```bash
 node server.js
 ```
@@ -70,23 +62,10 @@ Port 8080 must be available.
 
 ### Running the Client
 
-Simply open the HTML files in the client folder directly in browser (WebSocket server must be running).
+Open the HTML files in the `client` folder directly in a browser. The WebSocket server must be running first.
 
-## Contributions and Credits
-### Authors:
+## Authors
 
 - Josseph Valverde Robles
 - Ovidio Martínez Taleno
 - Gerson Vargas Gamboa
-
-### This project utilizes the following technologies and resources:
-
-- [AWS S3] – Cloud Storage
-
-- [WebSocket] – Real-time Communication
-
-- [Node.js] – JavaScript Runtime Environment for the Server
-
-- [Worker Threads] – Thread Management for Distributed Processing
-
-
