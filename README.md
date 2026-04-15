@@ -1,8 +1,8 @@
-# OnStream — Distributed Multimedia Streaming System
+# OnStream — Multimedia Streaming System
 
-A distributed multimedia system capable of streaming music and videos over a local network. The system leverages Edge Computing solutions to enable efficient management of simultaneous requests and ensure fast, reliable content delivery.
+A multimedia streaming system capable of delivering music and videos by integrating AWS S3 for cloud-hosted assets and local storage. The system uses WebSockets to ensure real-time catalog synchronization and fast content delivery between the server and clients.
 
-The backend is powered by Node.js, utilizing AWS S3 for cloud storage and WebSockets for real-time communication between server and clients. The frontend provides an adaptive user interface built with HTML, JavaScript, and CSS.
+The backend is powered by Node.js, while the frontend provides an adaptive user interface built with HTML, JavaScript, and CSS, allowing users to browse media catalogs and play content directly in the browser.
 
 ## Screenshots
 
